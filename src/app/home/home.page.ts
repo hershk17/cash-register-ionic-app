@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService, Message } from '../services/data.service';
+import { DataService, Product } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
+  getProducts(): Product[] {
     return this.data.getMessages();
   }
 
