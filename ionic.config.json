@@ -1,0 +1,8 @@
+{
+  "name": "cash-register-ionic-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "a88c09c7"
+}
