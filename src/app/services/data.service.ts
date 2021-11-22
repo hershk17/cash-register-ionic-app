@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 export interface Product {
-  prop1: string;
-  prop2: string;
-  prop3: string;
+  name: any;
+  qty: any;
+  price: any;
 }
 
 @Injectable({
@@ -12,10 +12,30 @@ export interface Product {
 export class DataService {
   public products: Product[] = [
     {
-      prop1: 'temp',
-      prop2: 'temp',
-      prop3: 'temp'
-    }
+      name: 'Pants',
+      qty: 20,
+      price: 50.7
+    },
+    {
+      name: 'Shoes',
+      qty: 50,
+      price: 90
+    },
+    {
+      name: 'Hats',
+      qty: 10,
+      price: 20.5
+    },
+    {
+      name: 'TShirts',
+      qty: 10,
+      price: 33.8
+    },
+    {
+      name: 'Dresses',
+      qty: 24,
+      price: 140.3
+    },
   ];
 
   constructor() { }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../services/data.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { Product } from '../services/data.service';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
+  @Output() selected: any = new EventEmitter<any>();
 
   constructor() { }
 
