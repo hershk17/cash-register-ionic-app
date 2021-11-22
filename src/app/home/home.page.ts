@@ -30,10 +30,6 @@ export class HomePage {
         this.quantity = this.quantity.substring(0, this.quantity.length - 1);
       } else {
         this.quantity += num;
-
-        // if (this.quantity + num <= this.currentSelection.qty) {
-          
-        // }
       }
       this.updatePrice();
     }
