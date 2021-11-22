@@ -16,7 +16,7 @@ export class HomePage {
   }
 
   getProducts(): Product[] {
-    return this.data.getMessages();
+    return this.data.getProducts();
   }
 
 }
