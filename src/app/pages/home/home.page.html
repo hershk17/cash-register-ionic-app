@@ -1,57 +1,71 @@
-<ion-header [translucent]="true" collapse="condense">
+<ion-header>
   <ion-toolbar>
     <ion-title> Cash Register App </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list style="margin-top: 10px">
-    <ion-item style="margin-left: -15px">
-      <ion-grid>
-        <ion-row>
-          <ion-col class="ion-text-center"> Name </ion-col>
-          <ion-col class="ion-text-center"> Qty </ion-col>
-          <ion-col class="ion-text-center"> Price </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-    <app-product
-      *ngFor="let product of getProducts()"
-      [product]="product"
-      (selected)="productSelected($event)"
-      [detailedInfo]="true"
-    ></app-product>
-  </ion-list>
+  <div scrolly="true" style="max-height: 40%">
+    <ion-list style="padding: 0%">
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col style="padding-left: -30px" class="ion-text-center">
+              <b>Name</b>
+            </ion-col>
+            <ion-col style="padding-left: 30px" class="ion-text-center">
+              <b>Qty</b>
+            </ion-col>
+            <ion-col style="padding-left: 30px" class="ion-text-center">
+              <b>Price</b>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <app-product
+        *ngFor="let product of getProducts()"
+        [product]="product"
+        (selected)="productSelected($event)"
+        [detailedInfo]="true"
+      ></app-product>
+    </ion-list>
+  </div>
 
-  <ion-grid style="margin-top: 20px; margin-bottom: 20px">
+  <ion-grid style="padding-top: 20px; padding-bottom: 10px">
     <ion-row>
-      <ion-col class="ion-text-center" style="font-style: italic">
-        {{type}}
+      <ion-col class="ion-text-center">
+        <b>{{type}}</b>
       </ion-col>
-      <ion-col class="ion-text-center" style="font-style: italic">
-        {{quantity}}
+      <ion-col class="ion-text-center">
+        <b>{{quantity}}</b>
       </ion-col>
-      <ion-col class="ion-text-center" style="font-style: italic">
-        {{total}}
+      <ion-col class="ion-text-center">
+        <b>{{total}}</b>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-grid
     size="auto"
-    style="display: flex; align-items: center; justify-content: center"
-    class="ion-no-padding"
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px;
+    "
   >
-    <ion-row size="auto">
-      <ion-col size="auto">
+    <ion-row size="auto" style="padding: 0">
+      <ion-col size="auto" style="padding: 0">
         <ion-grid size="auto">
           <ion-row
             *ngFor="let x of [].constructor(3); let i = index"
             size="auto"
+            style="padding: 1px"
           >
             <ion-col
               *ngFor="let y of [].constructor(3); let j = index"
               size="auto"
+              style="padding: 1px"
             >
               <ion-button
                 shape="round"
@@ -63,8 +77,8 @@
               >
             </ion-col>
           </ion-row>
-          <ion-row size="auto">
-            <ion-col size="auto">
+          <ion-row size="auto" style="padding: 1px">
+            <ion-col size="auto" style="padding: 1px">
               <ion-button
                 shape="round"
                 fill="outline"
@@ -73,7 +87,7 @@
                 >0</ion-button
               >
             </ion-col>
-            <ion-col size="auto">
+            <ion-col size="auto" style="padding: 1px">
               <ion-button
                 shape="round"
                 color="dark"
@@ -83,38 +97,39 @@
                 >0</ion-button
               >
             </ion-col>
-            <ion-col size="auto">
+            <ion-col size="auto" style="padding: 1px">
               <ion-button
                 shape="round"
                 color="light"
                 size="large"
                 (click)="press(-1)"
+                style="width: 65px"
                 >⌫</ion-button
               >
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-col>
-      <ion-col>
-        <ion-row style="margin-top: 10px">
+      <ion-col style="padding: 0px">
+        <ion-row style="margin-top: 10px; padding: 1px">
           <ion-button
             color="tertiary"
             routerLink="/manage"
             fill="solid"
-            shape="round"
+            shape="block"
+            style="width: 90px; height: 60px; --border-radius: 10px"
           >
-            <b style="color: black">Manage</b>
+            <b style="color: black;">Manage</b>
           </ion-button>
         </ion-row>
-        <ion-row>
+        <ion-row style="padding: 1px">
           <ion-button
             color="success"
             (click)="buyButtonClicked()"
             fill="solid"
-            shape="round"
-            expand="full"
+            style="width: 90px; height: 120px; --border-radius: 10px"
           >
-            <b style="color: black">Buy</b>
+            <b>Buy</b>
           </ion-button>
         </ion-row>
       </ion-col>

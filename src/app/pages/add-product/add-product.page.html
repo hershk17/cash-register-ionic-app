@@ -1,12 +1,32 @@
-<ion-header [translucent]="true" collapse="condense">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Add Product</ion-title>
+    <ion-title>Add</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="saveClicked()" fill="solid" shape="round">
+        <b>Save</b>
+      </ion-button>
+      <ion-button color="dark" (click)="cancelClicked()" expand="block" fill="outline" shape="round">
+        <b>Cancel</b>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <h3 style="padding-left: 20px;">Enter Details</h3>
+  <ion-item>
+    <ion-label position="floating">Product Name</ion-label>
+    <ion-input [(ngModel)]="name" type="string" clearInput></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Product Quantity</ion-label>
+    <ion-input [(ngModel)]="quantity" type="number" clearInput></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Product Price</ion-label>
+    <ion-input [(ngModel)]="price" type="number" clearInput></ion-input>
+  </ion-item>
 </ion-content>

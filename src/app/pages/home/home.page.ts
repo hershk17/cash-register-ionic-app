@@ -26,8 +26,10 @@ export class HomePage {
       }
       if (num === -1) {
         this.quantity = this.quantity.substring(0, this.quantity.length - 1);
-      } else {
+      } else if (this.quantity <= 9999) {
         this.quantity += num;
+      } else {
+        this.quantity = 9999;
       }
       this.updatePrice();
     }
@@ -47,7 +49,9 @@ export class HomePage {
   updatePrice() {
     if (this.currentSelection) {
       this.total =
-        this.quantity === '' ? '' : this.quantity * this.currentSelection.price;
+        this.quantity === ''
+          ? ''
+          : (this.quantity * this.currentSelection.price).toFixed(2);
     }
   }
 
@@ -74,7 +78,12 @@ export class HomePage {
               ' for ' +
               this.total
           );
-          this.data.addPurchase(this.currentSelection, this.quantity, Date.now().toLocaleString(), this.total);
+          this.data.addPurchase(
+            this.currentSelection,
+            this.quantity,
+            (new Date()).toLocaleString(),
+            this.total
+          );
           this.resetSelections();
         } else {
           alert('Quantity entered is greater than quantity available.');

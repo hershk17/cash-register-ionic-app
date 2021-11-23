@@ -21,10 +21,14 @@ export class RestockPage {
   }
 
   restockConfirmClicked() {
-    console.log('x restocked by ' + this.quantity);
+    this.data.updateQty(
+      this.currentSelection.id,
+      this.currentSelection.qty + Number(this.quantity)
+    );
+    this.quantity = null;
   }
 
   cancelClicked() {
-    console.log('cancel clicked');
+    window.history.back();
   }
 }
