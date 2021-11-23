@@ -1,0 +1,25 @@
+<ion-header [translucent]="true" collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="margin-top: 10px">
+    <ion-item style="margin-left: -25px">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center"> Name </ion-col>
+          <ion-col style="margin-left: -10px" class="ion-text-center"> Qty </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <app-product
+      *ngFor="let purchase of getPurchases()"
+      [purchase]="purchase"
+    ></app-product>
+  </ion-list>
+</ion-content>

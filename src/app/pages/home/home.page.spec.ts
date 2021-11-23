@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { ProductComponentModule } from '../product/product.module';
+import { ProductComponentModule } from '../../components/product/product.module';
 
 import { HomePage } from './home.page';
 

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true" collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Manage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button
+    color="dark"
+    [routerLink]="['/history']"
+    fill="outline"
+    shape="round"
+  >
+    History
+  </ion-button>
+  <br />
+  <ion-button
+    color="dark"
+    [routerLink]="['/restock']"
+    fill="outline"
+    shape="round"
+  >
+    Restock
+  </ion-button>
+  <br />
+  <ion-button
+    color="dark"
+    [routerLink]="['/add-product']"
+    fill="outline"
+    shape="round"
+  >
+    Add Item
+  </ion-button>
+</ion-content>

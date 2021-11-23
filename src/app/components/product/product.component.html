@@ -1,0 +1,28 @@
+<ion-item *ngIf="product" button="true" [detail]="false" (click)="selected.emit(product)">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        {{ product.name }}
+      </ion-col>
+      <ion-col class="ion-text-center">
+        {{ product.qty }}
+      </ion-col>
+      <ion-col *ngIf="detailedInfo" class="ion-text-center">
+        {{ product.price }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+
+<ion-item *ngIf="purchase" button="true" [detail]="true" [routerLink]="['/history',purchase.id]">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        {{ purchase.name }}
+      </ion-col>
+      <ion-col class="ion-text-center">
+        {{ purchase.purchaseQty }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>

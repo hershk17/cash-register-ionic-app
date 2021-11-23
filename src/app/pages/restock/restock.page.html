@@ -1,0 +1,44 @@
+<ion-header [translucent]="true" collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Restock Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item style="margin-left: -20px;">
+      <h2 style="padding-left: 10px;">Select a Product</h2>
+    </ion-item>
+    <app-product
+      *ngFor="let product of getProducts()"
+      [product]="product"
+      (selected)="productSelected($event)"
+      [detailedInfo]="false"
+    ></app-product>
+  </ion-list>
+
+  <div *ngIf="currentSelection">
+    <div style="padding-left: 20px">
+      <h2>{{currentSelection.name}}</h2>
+      <h2>
+        {{currentSelection.qty}} ➔ {{currentSelection.qty + (this.quantity ?
+        this.quantity : null)}}
+      </h2>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Enter Quantity</ion-label>
+      <ion-input [(ngModel)]="quantity" type="number" clearInput></ion-input>
+    </ion-item>
+    <div style="padding-left: 20px; padding-top: 10px; padding-right: 10px">
+      <ion-button (click)="restockConfirmClicked()" fill="solid" shape="round">
+        Restock
+      </ion-button>
+      <ion-button (click)="cancelClicked()" fill="outline" shape="round">
+        Cancel
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
