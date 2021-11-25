@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "cash-register-ionic-app",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

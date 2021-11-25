@@ -26,10 +26,10 @@ export class HomePage {
       }
       if (num === -1) {
         this.quantity = this.quantity.substring(0, this.quantity.length - 1);
-      } else if (this.quantity <= 9999) {
+      } else if (this.quantity + num <= 9999) {
         this.quantity += num;
       } else {
-        this.quantity = 9999;
+        this.quantity = '9999';
       }
       this.updatePrice();
     }
