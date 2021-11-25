@@ -8,14 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <div scrolly="true" style="max-height: 40%; margin-bottom: 10px;">
-    <ion-item style="padding: 0%">
+  <div scrolly="true" style="max-height: 40%; margin-bottom: 10px">
+    <ion-item style="margin-left: -20px; padding: 0%">
       <ion-grid style="padding: 0%">
         <ion-row style="padding: 0%">
-          <ion-col style="padding: 0%" class="ion-text-center">
+          <ion-col
+            style="margin-left: 20px; padding: 0%"
+            class="ion-text-center"
+          >
             <b>Name</b>
           </ion-col>
-          <ion-col style="padding: 0%; padding-left: 20px;" class="ion-text-center">
+          <ion-col
+            style="padding: 0%; padding-left: 20px"
+            class="ion-text-center"
+          >
             <b>Qty</b>
           </ion-col>
         </ion-row>
@@ -31,10 +37,20 @@
     </ion-list>
   </div>
 
-  <h3 *ngIf="!currentSelection" class="ion-text-center">Select a Product</h3>
+  <h4 *ngIf="!currentSelection" style="margin-top: 20px; margin-left: 20px">
+    <i>select a Product</i>
+    <ion-button
+      (click)="cancelClicked()"
+      fill="outline"
+      color="dark"
+      shape="round"
+    >
+      <b>Cancel</b>
+    </ion-button>
+  </h4>
 
   <div *ngIf="currentSelection">
-    <ion-card-header style="margin-bottom: -20px;">
+    <ion-card-header style="margin-bottom: -20px; margin-left: 10px">
       <ion-card-subtitle>Restocking</ion-card-subtitle>
       <ion-card-title>{{currentSelection.name}}</ion-card-title>
       <ion-card-content style="margin-left: -10px; margin-top: -10px">
@@ -44,15 +60,20 @@
       </ion-card-content>
       <ion-card-subtitle></ion-card-subtitle>
     </ion-card-header>
-    <ion-item>
+    <ion-item style="margin-left: 10px">
       <ion-label position="floating">Enter Quantity</ion-label>
       <ion-input [(ngModel)]="quantity" type="number" clearInput></ion-input>
     </ion-item>
-    <div style="padding-left: 10px; padding-top: 10px; padding-right: 10px">
+    <div style="padding-left: 20px; padding-top: 30px; padding-right: 10px">
       <ion-button (click)="restockConfirmClicked()" fill="solid" shape="round">
         <b>Restock</b>
       </ion-button>
-      <ion-button (click)="cancelClicked()" fill="outline" color="dark" shape="round">
+      <ion-button
+        (click)="cancelClicked()"
+        fill="outline"
+        color="dark"
+        shape="round"
+      >
         <b>Cancel</b>
       </ion-button>
     </div>

@@ -7,16 +7,16 @@
 <ion-content [fullscreen]="true">
   <div scrolly="true" style="max-height: 40%">
     <ion-list style="padding: 0%">
-      <ion-item>
+      <ion-item style="margin-left: -20px" >
         <ion-grid>
           <ion-row>
-            <ion-col style="padding-left: -30px" class="ion-text-center">
+            <ion-col style="margin-left: 20px" class="ion-text-center">
               <b>Name</b>
             </ion-col>
-            <ion-col style="padding-left: 30px" class="ion-text-center">
+            <ion-col style="margin-left: 30px" class="ion-text-center">
               <b>Qty</b>
             </ion-col>
-            <ion-col style="padding-left: 30px" class="ion-text-center">
+            <ion-col style="margin-left: 30px" class="ion-text-center">
               <b>Price</b>
             </ion-col>
           </ion-row>
@@ -100,10 +100,11 @@
             <ion-col size="auto" style="padding: 1px">
               <ion-button
                 shape="round"
-                color="light"
+                color="medium"
+                fill="outline"
                 size="large"
                 (click)="press(-1)"
-                style="width: 65px"
+                style="width: 55px"
                 >⌫</ion-button
               >
             </ion-col>
@@ -119,7 +120,7 @@
             shape="block"
             style="width: 90px; height: 60px; --border-radius: 10px"
           >
-            <b style="color: black;">Manage</b>
+            <b>Manage</b>
           </ion-button>
         </ion-row>
         <ion-row style="padding: 1px">
