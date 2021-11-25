@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { DataService, Product } from 'src/app/services/data.service';
 
 @Component({
@@ -10,7 +11,25 @@ export class RestockPage {
   currentSelection: Product = null;
   quantity: string;
 
-  constructor(private data: DataService) {}
+  processing = false;
+
+  constructor(
+    private data: DataService,
+    private alertController: AlertController
+  ) {}
+
+  async presentAlert(title: string, msg: string) {
+    const alert = await this.alertController.create({
+      header: title,
+      message: msg,
+      buttons: [
+        {
+          text: 'OK',
+        },
+      ],
+    });
+    await alert.present();
+  }
 
   getProducts(): Product[] {
     return this.data.getProducts();
@@ -20,12 +39,39 @@ export class RestockPage {
     this.currentSelection = product;
   }
 
-  restockConfirmClicked() {
-    this.data.updateQty(
-      this.currentSelection.id,
-      this.currentSelection.qty + Number(this.quantity)
-    );
-    this.quantity = null;
+  async restockConfirmClicked() {
+    if (!this.processing) {
+      this.processing = true;
+
+      const enteredQty: any = Number(this.quantity);
+      if (!isNaN(enteredQty)) {
+        if (enteredQty) {
+          if (enteredQty > 0) {
+            this.data.updateQty(
+              this.currentSelection.id,
+              this.currentSelection.qty + enteredQty
+            );
+            this.quantity = null;
+            await this.presentAlert(
+              'Success',
+              this.currentSelection.name +
+                ' restocked to ' +
+                this.currentSelection.qty
+            );
+          } else {
+            await this.presentAlert(
+              'Error',
+              'Quantity entered must be greater than 0.'
+            );
+          }
+        } else {
+          await this.presentAlert('Error', 'Please enter a Quantity.');
+        }
+      } else {
+        await this.presentAlert('Error', 'Quantity entered must be a number.');
+      }
+      this.processing = false;
+    }
   }
 
   cancelClicked() {

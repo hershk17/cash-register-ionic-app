@@ -37,10 +37,20 @@
     </ion-list>
   </div>
 
-  <h4 *ngIf="!currentSelection" style="margin-top: 20px; margin-left: 20px;"><i>select a Product</i></h4>
+  <h4 *ngIf="!currentSelection" style="margin-top: 20px; margin-left: 20px">
+    <i>select a Product</i>
+    <ion-button
+      (click)="cancelClicked()"
+      fill="outline"
+      color="dark"
+      shape="round"
+    >
+      <b>Cancel</b>
+    </ion-button>
+  </h4>
 
   <div *ngIf="currentSelection">
-    <ion-card-header style="margin-bottom: -20px; margin-left: 10px;">
+    <ion-card-header style="margin-bottom: -20px; margin-left: 10px">
       <ion-card-subtitle>Restocking</ion-card-subtitle>
       <ion-card-title>{{currentSelection.name}}</ion-card-title>
       <ion-card-content style="margin-left: -10px; margin-top: -10px">
@@ -50,11 +60,11 @@
       </ion-card-content>
       <ion-card-subtitle></ion-card-subtitle>
     </ion-card-header>
-    <ion-item style="margin-left: 10px;">
+    <ion-item style="margin-left: 10px">
       <ion-label position="floating">Enter Quantity</ion-label>
       <ion-input [(ngModel)]="quantity" type="number" clearInput></ion-input>
     </ion-item>
-    <div style="padding-left: 20px; padding-top: 30px; padding-right: 10px">  
+    <div style="padding-left: 20px; padding-top: 30px; padding-right: 10px">
       <ion-button (click)="restockConfirmClicked()" fill="solid" shape="round">
         <b>Restock</b>
       </ion-button>
