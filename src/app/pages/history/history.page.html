@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div scrolly="true" style="max-height: 40%">
+    <ion-list style="padding: 0%">
+      <ion-item style="margin-left: -15px; padding: 0%">
+        <ion-grid style="padding: 0%">
+          <ion-row style="padding: 0%">
+            <ion-col style="padding: 0%" class="ion-text-center">
+              <b>Name</b>
+            </ion-col>
+            <ion-col style="margin-left: -10px; padding: 0%" class="ion-text-center">
+              <b>Qty</b>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <app-product
+        *ngFor="let purchase of getPurchases()"
+        [purchase]="purchase"
+      ></app-product>
+    </ion-list>
+  </div>
+</ion-content>

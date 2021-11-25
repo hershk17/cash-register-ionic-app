@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Purchase Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card-header>
+    <ion-card-subtitle>{{product.purchaseDate}}</ion-card-subtitle>
+    <ion-card-title>{{product.name}}</ion-card-title>
+    <ion-card-content style="margin-left: -10px; margin-top: -10px;">
+      ID: {{product.id}} <br />
+      Qty: {{product.purchaseQty}} <br />
+      Price: ${{product.price}} <br />
+      Total: ${{product.purchaseTotal}} 
+    </ion-card-content>
+    <ion-card-subtitle></ion-card-subtitle>
+  </ion-card-header>
+</ion-content>
